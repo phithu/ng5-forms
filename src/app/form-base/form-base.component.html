@@ -1,0 +1,26 @@
+<mat-card class="container">
+  <form [formGroup]="form" (ngSubmit)="submitForm(form.value)">
+    <mat-form-field class="input_fullWidth">
+      <input formControlName='username' matInput placeholder="Username (Update on submit)">
+    </mat-form-field>
+    <mat-error class="mar-b-20" *ngIf="formErrors.username">
+      {{formErrors.username}}
+    </mat-error>
+
+    <mat-form-field class="input_fullWidth">
+      <input formControlName='phone' matInput placeholder="Phone Number (Update on change)">
+    </mat-form-field>
+    <mat-error class="mar-b-20" *ngIf="formErrors.phone">
+      {{formErrors.phone}}
+    </mat-error>
+
+    <mat-form-field class="input_fullWidth">
+      <input (blur)="validatorControl('email')" formControlName='email' type="email" matInput placeholder="Email (Update on blur)">
+    </mat-form-field>
+    <mat-error class="mar-b-20" *ngIf="formErrors.email">
+      {{formErrors.email}}
+    </mat-error>
+    <button class="right" mat-raised-button color="warn">Accept</button>
+    <div class="clearfix"></div>
+  </form>
+</mat-card>
